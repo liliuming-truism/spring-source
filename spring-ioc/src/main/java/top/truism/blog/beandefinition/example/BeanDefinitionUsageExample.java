@@ -5,7 +5,7 @@ import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import top.truism.blog.beandefinition.UserService;
+import top.truism.blog.beandefinition.BeanDefinitionUserService;
 
 @Slf4j
 @Configuration
@@ -20,12 +20,12 @@ public class BeanDefinitionUsageExample {
 
         // 测试动态注册的Bean
         try {
-            UserService dynamicService = context.getBean("dynamicUserService", UserService.class);
+            BeanDefinitionUserService dynamicService = context.getBean("dynamicUserService", BeanDefinitionUserService.class);
             // Hello from Dynamic UserService
             dynamicService.sayHello();
 
             // UserService initialized: Generic UserService
-            UserService genericService = context.getBean("genericUserService", UserService.class);
+            BeanDefinitionUserService genericService = context.getBean("genericUserService", BeanDefinitionUserService.class);
             // Hello from Generic UserService
             genericService.sayHello();
 
@@ -34,13 +34,13 @@ public class BeanDefinitionUsageExample {
             // Hello from Service-2
             // Hello from Service-3
             for (int i = 1; i <= 3; i++) {
-                UserService service = context.getBean("userService" + i, UserService.class);
+                BeanDefinitionUserService service = context.getBean("beanDefinitionUserService" + i, BeanDefinitionUserService.class);
                 service.sayHello();
             }
 
             // 测试条件性注册的Bean
             if (context.containsBean("prodUserService")) {
-                UserService prodService = context.getBean("prodUserService", UserService.class);
+                BeanDefinitionUserService prodService = context.getBean("prodUserService", BeanDefinitionUserService.class);
                 // Hello from Production UserService
                 prodService.sayHello();
             }

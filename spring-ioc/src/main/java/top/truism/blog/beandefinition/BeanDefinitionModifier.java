@@ -15,8 +15,8 @@ public class BeanDefinitionModifier implements BeanFactoryPostProcessor {
         throws BeansException {
 
         // 获取现有的BeanDefinition
-        if (beanFactory.containsBeanDefinition("userService")) {
-            BeanDefinition beanDefinition = beanFactory.getBeanDefinition("userService");
+        if (beanFactory.containsBeanDefinition("beanDefinitionUserService")) {
+            BeanDefinition beanDefinition = beanFactory.getBeanDefinition("beanDefinitionUserService");
 
             // 修改作用域
             beanDefinition.setScope(BeanDefinition.SCOPE_PROTOTYPE);

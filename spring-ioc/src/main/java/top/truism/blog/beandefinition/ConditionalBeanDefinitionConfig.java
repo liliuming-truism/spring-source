@@ -24,14 +24,14 @@ public class ConditionalBeanDefinitionConfig {
 
                 if ("prod".equals(env)) {
                     BeanDefinition prodBeanDefinition = BeanDefinitionBuilder
-                        .genericBeanDefinition(UserService.class)
+                        .genericBeanDefinition(BeanDefinitionUserService.class)
                         .addConstructorArgValue("Production UserService")
                         .getBeanDefinition();
 
                     registry.registerBeanDefinition("prodUserService", prodBeanDefinition);
                 } else {
                     BeanDefinition devBeanDefinition = BeanDefinitionBuilder
-                        .genericBeanDefinition(UserService.class)
+                        .genericBeanDefinition(BeanDefinitionUserService.class)
                         .addConstructorArgValue("Development UserService")
                         .getBeanDefinition();
 

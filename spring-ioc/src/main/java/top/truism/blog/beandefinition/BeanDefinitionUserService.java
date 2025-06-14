@@ -3,12 +3,12 @@ package top.truism.blog.beandefinition;
 import org.springframework.stereotype.Component;
 
 @Component
-public class UserService {
+public class BeanDefinitionUserService {
     private String serviceName;
 
-    public UserService() {}
+    public BeanDefinitionUserService() {}
 
-    public UserService(String serviceName) {
+    public BeanDefinitionUserService(String serviceName) {
         this.serviceName = serviceName;
     }
 

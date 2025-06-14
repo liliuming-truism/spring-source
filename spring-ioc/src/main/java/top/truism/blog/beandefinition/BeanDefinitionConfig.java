@@ -21,7 +21,7 @@ public class BeanDefinitionConfig {
 
                 // 使用BeanDefinitionBuilder创建BeanDefinition
                 BeanDefinition beanDefinition = BeanDefinitionBuilder
-                    .genericBeanDefinition(UserService.class)
+                    .genericBeanDefinition(BeanDefinitionUserService.class)
                     .addConstructorArgValue("Dynamic UserService")
                     .setScope(BeanDefinition.SCOPE_SINGLETON)
                     .getBeanDefinition();

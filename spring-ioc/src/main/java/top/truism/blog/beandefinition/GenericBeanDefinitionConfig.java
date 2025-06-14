@@ -22,7 +22,7 @@ public class GenericBeanDefinitionConfig {
 
                 // 创建GenericBeanDefinition
                 GenericBeanDefinition beanDefinition = new GenericBeanDefinition();
-                beanDefinition.setBeanClass(UserService.class);
+                beanDefinition.setBeanClass(BeanDefinitionUserService.class);
                 beanDefinition.setScope(BeanDefinition.SCOPE_PROTOTYPE);
 
                 // 设置属性值

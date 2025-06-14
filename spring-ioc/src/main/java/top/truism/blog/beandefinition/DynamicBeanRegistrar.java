@@ -21,12 +21,12 @@ public class DynamicBeanRegistrar implements BeanFactoryPostProcessor {
             // 动态创建多个Bean
             for (int i = 1; i <= 3; i++) {
                 BeanDefinition beanDefinition = BeanDefinitionBuilder
-                    .genericBeanDefinition(UserService.class)
+                    .genericBeanDefinition(BeanDefinitionUserService.class)
                     .addPropertyValue("serviceName", "Service-" + i)
                     .setScope(BeanDefinition.SCOPE_SINGLETON)
                     .getBeanDefinition();
 
-                registry.registerBeanDefinition("userService" + i, beanDefinition);
+                registry.registerBeanDefinition("beanDefinitionUserService" + i, beanDefinition);
             }
         }
     }
