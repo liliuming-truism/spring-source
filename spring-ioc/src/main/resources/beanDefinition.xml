@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 简单Bean定义 -->
+    <bean id="userService" class="top.truism.blog.beandefinition.xml.UserService">
+        <property name="userName" value="张三"/>
+        <property name="age" value="25"/>
+    </bean>
+
+    <!-- 构造函数注入 -->
+    <bean id="orderService" class="top.truism.blog.beandefinition.xml.OrderService">
+        <constructor-arg ref="userService"/>
+        <constructor-arg value="订单服务"/>
+    </bean>
+
+    <!-- 复杂属性注入 -->
+    <bean id="productService" class="top.truism.blog.beandefinition.xml.ProductService">
+        <property name="serviceList">
+            <list>
+                <ref bean="userService"/>
+                <ref bean="orderService"/>
+            </list>
+        </property>
+        <property name="configMap">
+            <map>
+                <entry key="timeout" value="30"/>
+                <entry key="retryCount" value="3"/>
+            </map>
+        </property>
+    </bean>
+
+    <!-- 作用域和生命周期方法 -->
+    <bean id="cacheService" class="top.truism.blog.beandefinition.xml.CacheService"
+          scope="singleton"
+          init-method="init"
+          destroy-method="destroy"
+          lazy-init="true">
+        <property name="cacheSize" value="1000"/>
+    </bean>
+
+</beans>
